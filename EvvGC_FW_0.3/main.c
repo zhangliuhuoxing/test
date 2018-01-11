@@ -212,19 +212,4 @@ void EXTI4_IRQHandler(void)//EXTernal interrupt routine PB4-Yaw
 	}
 }
 
-void TIM2_IRQHandler(void)
-{
-	if(TIM2->SR & TIM_SR_UIF) // if UIF flag is set
-	{
-		TIM2->SR &= ~TIM_SR_UIF; // clear UIF flag  
-		stop=1;
-		if(ConfigMode==0)
-		{
-			watchcounter++;
-		}
-		if(watchcounter > 250)
-		{
-			TimerOff();
-		}	
-	}
-}
+
